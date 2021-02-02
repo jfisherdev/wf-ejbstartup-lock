@@ -3,6 +3,7 @@ package com.jfisherdev.wfejbstartuplock.commonejb;
 import com.jfisherdev.wfejbstartuplock.commons.User;
 import com.jfisherdev.wfejbstartuplock.commons.ejb.UserManagement;
 
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import java.util.Set;
  * @author Josh Fisher
  */
 @Stateless(name = UserManagement.BEAN_NAME)
+@Remote(UserManagement.class)
 public class UserManagementBean implements UserManagement {
 
     private final UserManagementDAO userManagementDAO = new UserManagementDAO();

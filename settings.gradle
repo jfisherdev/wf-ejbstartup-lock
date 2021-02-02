@@ -1,0 +1,6 @@
+rootProject.name = 'wf-ejbstartup-lock'
+include 'wf-ejbstartup-lock-commons'
+include 'wf-ejbstartup-lock-commonejb'
+include 'wf-ejbstartup-lock-web'
+include 'wf-ejbstartup-lock-ejb2'
+

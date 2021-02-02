@@ -1,0 +1,25 @@
+plugins {
+    id 'ear'
+}
+
+group 'com.jfisherdev'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    deploy project(path: ':wf-ejbstartup-lock-commonejb', configuration: 'archives')
+    deploy project(path: ':wf-ejbstartup-lock-web', configuration: 'archives')
+    deploy project(path: ':wf-ejbstartup-lock-ejb2', configuration: 'archives')
+    earlib project(':wf-ejbstartup-lock-commons')
+}
+
+ear {
+    deploymentDescriptor {  // custom entries for application.xml:
+        initializeInOrder = true
+        module("wf-ejbstartup-lock-commonejb.jar", "ejb")
+        webModule("wf-ejbstartup-lock-web.war", "/wfejbstartuplock")
+        module("wf-ejbstartup-lock-ejb2.jar", "ejb")
+    }
+}
